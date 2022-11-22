@@ -1,0 +1,26 @@
+---
+# Initial Server Setup
+ remote_user: dan
+
+# MySQL Setup
+ mysql_root_password: root
+ mysql_app_db: laravel
+ mysql_app_user: dan
+ mysql_app_pass: 123456789
+
+# Web Server Setup
+ http_host: "{{ 172.31.82.91 }}"
+ remote_www_root: /var/www
+ app_root_dir: laravel
+ document_root: "{{ remote_www_root }}/{{ app_root_dir }}/public"
+
+# Laravel Env Variables
+ app_name: laravel
+ app_env: dev
+ app_debug: true
+ app_url: "http://{{ http_host }}"
+ db_host: localhost
+ db_port: 3306
+ db_database: "{{ mysql_app_db }}"
+ db_user: "{{ mysql_app_user }}"
+ db_pass: "{{ mysql_app_pass }}"
